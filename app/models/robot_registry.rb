@@ -34,7 +34,7 @@ class RobotRegistry
     database.transaction do
       temp = database['robots'].find{|bot| bot["id"] == id }
       temp.each do |attribute, value|
-        temp[attribute] = params[attribute]
+        temp[attribute] = params[attribute] unless attribute == "id"
       end
     end
   end

@@ -9,12 +9,12 @@
   end %>
 
   <ul>
-  <% attributes.each do |attribute, value| %>
+    <% attributes.each do |attribute, value| %>
       <% if attribute != "name" %>
-    <li> <%= attribute%>: <%= value %></li>
+      <li> <%= attribute%>: <%= value %></li>
       <% end %>
-  <% end %>
-    <img src="https://robohash.org/<%=robot.data.values.map(&:to_s).reduce(:+)%>" alt="No Picture"/>
+    <% end %>
+    <img src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
   </ul>
 
 <% end %>
