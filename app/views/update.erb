@@ -2,12 +2,14 @@
 
 <form action="/robotregistry/<%= @robot.data["id"] %>" method="post">
   <input type="hidden" name="_method" value="put">
+
   <ul>
-  <% @robot.data.each do |attribute, value| %>
-    <% if attribute != "id" %>
-    <li><%= attribute %>: <input type='text' name="robot[<%=attribute%>]" value="<%= value %>"></li>
+    <% @robot.data.each do |attribute, value| %>
+      <% if attribute != "id" %>
+      <li><%= attribute %>: <input type='text' name="robot[<%=attribute%>]" value="<%= value %>"></li>
+      <% end %>
     <% end %>
-  <% end %>
   </ul>
+
   <input type='submit'/>
 </form>

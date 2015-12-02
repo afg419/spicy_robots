@@ -6,10 +6,9 @@
 
 <% @robots.each do |robot| %>
   <h3><a href="/robotregistry/<%=robot.data["id"]%>">NAME: <%=robot.data["name"]%></a></h3>
-
   <% robot_data_reduced(robot, :false) %>
-  <% p robot.data["id"] %>
   <a href="/robotregistry/<%=robot.data["id"]%>/update">edit</a>
+
   <form class="" action="/robotregistry/<%= robot.data["id"] %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">

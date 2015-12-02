@@ -10,8 +10,7 @@ class RobotRegistry
   def self.create(robot)
     database.transaction do
       database['robots'] ||= []
-      database['next_id'] ||= 0
-      database['next_id'] += 1
+      database['next_id'] = rand(0..100)
       database['robots'] << {"id" => database['next_id']}.merge(robot)
     end
   end

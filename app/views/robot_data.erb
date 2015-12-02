@@ -2,19 +2,19 @@
 
 <% if profile == :full
     attributes = robot.data
-    height, width  = 40, 40
+    height, width  = 350, 350
   else
     attributes = {}
-    height, width  = 20, 20
+    height, width  = 150, 150
   end %>
 
-  <ul>
-    <% attributes.each do |attribute, value| %>
-      <% if attribute != "name" %>
-      <li> <%= attribute%>: <%= value %></li>
-      <% end %>
-    <% end %>
-    <img src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
-  </ul>
+  <img height="<%= height %>" width="<%= width %>" src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
 
+  <ul>
+    <% attributes.each do |attribute, value|
+       if attribute != "name" %>
+      <li> <%= attribute%>: <%= value %></li>
+      <% end
+     end %>
+  </ul>
 <% end %>

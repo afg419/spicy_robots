@@ -1,3 +1,24 @@
 ---
-robots: []
-next_id: 1
+robots:
+- id: 26
+  name: Chaz
+  city: ijij
+  state: lllll
+  operational: okc
+  weapons: oko
+  branch: j
+- id: 27
+  name: Malcom
+  city: ij
+  state: ij
+  operational: ijijij
+  weapons: fd
+  branch: ojoj
+- id: 96
+  name: f
+  city: ''
+  state: ''
+  operational: ''
+  weapons: ''
+  branch: ''
+next_id: 96
