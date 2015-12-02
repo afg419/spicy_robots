@@ -1,0 +1,20 @@
+<% def robot_data_reduced(robot, profile = :full) %>
+
+<% if profile == :full
+    attributes = robot.data
+    height, width  = 40, 40
+  else
+    attributes = {}
+    height, width  = 20, 20
+  end %>
+
+  <ul>
+  <% attributes.each do |attribute, value| %>
+      <% if attribute != "name" %>
+    <li> <%= attribute%>: <%= value %></li>
+      <% end %>
+  <% end %>
+    <img src="https://robohash.org/<%=robot.data.values.map(&:to_s).reduce(:+)%>" alt="No Picture"/>
+  </ul>
+
+<% end %>

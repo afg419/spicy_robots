@@ -1,0 +1,10 @@
+---
+robots:
+- id: 1
+  name: Charles
+  city: jo
+  state: jo
+  operational: jo
+  weapons: ooo
+  branch: jo
+next_id: 1

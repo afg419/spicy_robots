@@ -1,0 +1,11 @@
+<h1>Edit robot:</h1>
+
+<form action="/robotregistry/<%= @robot.data["id"] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <ul>
+  <% @robot.data.each do |attribute, value| %>
+    <li><%= attribute %>: <input type='text' name="robot[<%=attribute%>]" value="<%= value %>"></li>
+  <% end %>
+  </ul>
+  <input type='submit'/>
+</form>
