@@ -47,10 +47,10 @@ class RobotRegistryTest < Minitest::Test
     robot2 = RobotRegistry.find(ids[1])
     robot3 = RobotRegistry.find(ids[2])
 
-    robot2 = RobotRegistry.update(ids[1], {:name => "Hank"})
+    robot2 = RobotRegistry.update(ids[1], {"name" => "Hank"})
     robot3 = RobotRegistry.update(ids[2], params.zip(vals(4)).to_h)
 
-    assert_equal "Hank", robot2.data[:name]
+    assert_equal "Hank", robot2.data["name"]
 
     params.each do |param|
       assert_equal "#{param.to_s}#{5}", robot3.data[param]

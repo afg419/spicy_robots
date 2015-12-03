@@ -44,13 +44,8 @@ class RobotRegistry
   end
 
   def self.delete(id)
-    p "MADE IT TO DELETE"
     database.transaction do
-      p "Before:"
-      p database['robots']
       database['robots'].delete_if{|bot| bot['id'] == id}
-      p "After:"
-      p database['robots']
     end
   end
 

@@ -7,4 +7,11 @@ robots:
   operational: jd
   weapons: j
   branch: j
-next_id: 98
+- id: 72
+  name: AHH
+  city: h
+  state: h
+  operational: h
+  weapons: h
+  branch: h
+next_id: 72

@@ -13,7 +13,7 @@ class Minitest::Test
   end
 
   def params
-    [:name,:city,:state,:operational,:weapons,:branch]
+    [:name,:city,:state,:operational,:weapons,:branch].map(&:to_s)
   end
 
   def vals(n)
