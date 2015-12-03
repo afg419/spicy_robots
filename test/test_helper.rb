@@ -6,14 +6,21 @@ require 'minitest/autorun'
 require 'capybara'
 
 Capybara.app = RobotControl
+DatabaseCleaner[:sequel, {:connection => Sequel.sqlite("db/robot_registry_test.sqlite3")}].strategy = :truncation
+
 
 class Minitest::Test
+
+  def setup
+    DatabaseCleaner.start
+  end
+
   def teardown
-    RobotRegistry.delete_all
+    DatabaseCleaner.clean
   end
 
   def params
-    [:name,:city,:state,:operational,:weapons,:branch].map(&:to_s)
+    [:name,:city,:state,:operational,:weapons,:branch]
   end
 
   def vals(n)

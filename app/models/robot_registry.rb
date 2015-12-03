@@ -4,55 +4,30 @@ class RobotRegistry
 
   def self.database
     if ENV["RACK_ENV"] == "test"
-      @database ||= Sequel.sqlite("db/task_manager_test.sqlite3")
+      @database ||= Sequel.sqlite("db/robot_registry_test.sqlite3")
     else
-      @database ||= Sequel.sqlite("db/task_manager_development.sqlite3")
+      @database ||= Sequel.sqlite("db/robot_registry_development.sqlite3")
     end
   end
 
   def self.create(robot)
-    database.transaction do
-      database['robots'] ||= []
-      database['next_id'] = rand(0..100)
-      database['robots'] << {"id" => database['next_id']}.merge(robot)
-      database['next_id']
-    end
+    database.from(:robots).insert(robot.merge(avatar_id:rand(1..100)))
   end
 
   def self.find(id)
-    all.find { |bot_obj| bot_obj.data["id"] == id }
-  end
-
-  def self.raw_bots
-    database.transaction do
-      database['robots'] || []
-    end
+    Robot.new(database.from(:robots).where(id: id).to_a[0])
   end
 
   def self.all
-    raw_bots.map {|bot| Robot.new(bot)}
+    database.from(:robots).to_a.map{|bot| Robot.new(bot)}
   end
 
   def self.update(id, params)
-    database.transaction do
-      temp = database['robots'].find{|bot| bot["id"] == id }
-      temp.each do |attribute, value|
-        temp[attribute] = params[attribute] unless attribute == "id"
-      end
-      Robot.new(temp)
-    end
+    database.from(:robots).where(id: id).update(params)
   end
 
   def self.delete(id)
-    database.transaction do
-      database['robots'].delete_if{|bot| bot['id'] == id}
-    end
-  end
-
-  def self.delete_all
-    database.transaction do
-      database['robots'] = []
-    end
+    database.from(:robots).where(id: id).delete
   end
 
 end
