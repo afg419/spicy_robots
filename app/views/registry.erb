@@ -7,7 +7,8 @@
 <div id="robot_links">
 <% @robots.each do |robot| %>
   <h3><a href="/robotregistry/<%=robot.data["id"]%>" id="<%=robot.data[:name] || robot.data["name"]%>">NAME: <%=robot.data["name"]%></a></h3>
-  <% robot_data_reduced(robot, :false) %>
+  <img height="150" width="150" src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
+
   <a id="edit<%=robot.data["id"]%>" href="/robotregistry/<%=robot.data["id"]%>/update">edit</a>
 
   <form class="" action="/robotregistry/<%= robot.data["id"] %>" method="post">

@@ -3,7 +3,7 @@ class RobotControl < Sinatra::Base
   set :method_override, true # <-- allows for _method stuff to override and make put and delete methods
 
   get '/' do
-    # @analytics = RobotAnalytics.data
+    @analytics = RobotAnalytics.data
     erb :dashboard
   end
 

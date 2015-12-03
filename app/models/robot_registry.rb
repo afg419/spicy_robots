@@ -3,10 +3,10 @@ require 'yaml/store'
 class RobotRegistry
 
   def self.database
-    if ENV['RACK_ENV'] == 'test'
-      @database ||= YAML::Store.new("db/robot_registry_test")
+    if ENV["RACK_ENV"] == "test"
+      @database ||= Sequel.sqlite("db/task_manager_test.sqlite3")
     else
-      @database ||= YAML::Store.new("db/robot_registry")
+      @database ||= Sequel.sqlite("db/task_manager_development.sqlite3")
     end
   end
 

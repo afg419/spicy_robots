@@ -1,17 +1,17 @@
 ---
 robots:
-- id: 98
-  name: Carlsjrdd
-  city: j
-  state: j
-  operational: jd
-  weapons: j
-  branch: j
-- id: 72
-  name: AHH
-  city: h
-  state: h
-  operational: h
-  weapons: h
-  branch: h
-next_id: 72
+- id: 75
+  name: Carl
+  city: Harrisburg
+  state: PA
+  operational: '1995'
+  weapons: guns!
+  branch: Navy
+- id: 8
+  name: Plywood
+  city: Philadelphia
+  state: PA
+  operational: '1950'
+  weapons: swords!
+  branch: dev ops
+next_id: 8
