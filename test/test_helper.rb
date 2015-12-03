@@ -11,6 +11,14 @@ class Minitest::Test
   def teardown
     RobotRegistry.delete_all
   end
+
+  def params
+    [:name,:city,:state,:operational,:weapons,:branch]
+  end
+
+  def vals(n)
+    ["name#{n+1}","city#{n+1}","state#{n+1}","operational#{n+1}","weapons#{n+1}","branch#{n+1}"]
+  end
 end
 
 class FeatureTest < Minitest::Test

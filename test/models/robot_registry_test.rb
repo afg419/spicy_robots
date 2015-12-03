@@ -8,13 +8,7 @@ class RobotRegistryTest < Minitest::Test
     end
   end
 
-  def params
-    [:name,:city,:state,:operational,:weapons,:branch]
-  end
 
-  def vals(n)
-    ["name#{n+1}","city#{n+1}","state#{n+1}","operational#{n+1}","weapons#{n+1}","branch#{n+1}"]
-  end
 
   def test_creates_robots
     ids = create_tasks(1)

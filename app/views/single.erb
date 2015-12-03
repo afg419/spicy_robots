@@ -1,8 +1,10 @@
 <% erb :robot_data %>
 
+<div id="robot_data">
 <h3>NAME: <%=@robot.data["name"]%></h3>
 
 <% robot_data_reduced(@robot) %>
+</div>
 
 <a href="/robotregistry">Back to bot registry</a>
 <a href="/">home</a>
