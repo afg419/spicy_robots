@@ -1,24 +1,10 @@
 ---
 robots:
-- id: 26
-  name: Chaz
-  city: ijij
-  state: lllll
-  operational: okc
-  weapons: oko
+- id: 98
+  name: Carlsjrdd
+  city: j
+  state: j
+  operational: j
+  weapons: j
   branch: j
-- id: 27
-  name: Malcom
-  city: ij
-  state: ij
-  operational: ijijij
-  weapons: fd
-  branch: ojoj
-- id: 96
-  name: f
-  city: ''
-  state: ''
-  operational: ''
-  weapons: ''
-  branch: ''
-next_id: 96
+next_id: 98

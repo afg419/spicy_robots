@@ -1,10 +1,13 @@
 require 'yaml/store'
-require_relative 'robot'
 
 class RobotRegistry
 
   def self.database
-    @database ||= YAML::Store.new("db/robot_registry")
+    if ENV['RACK_ENV'] == 'test'
+      @database ||= YAML::Store.new("db/robot_registry_test")
+    else
+      @database ||= YAML::Store.new("db/robot_registry")
+    end
   end
 
   def self.create(robot)
@@ -12,6 +15,7 @@ class RobotRegistry
       database['robots'] ||= []
       database['next_id'] = rand(0..100)
       database['robots'] << {"id" => database['next_id']}.merge(robot)
+      database['next_id']
     end
   end
 
@@ -35,6 +39,7 @@ class RobotRegistry
       temp.each do |attribute, value|
         temp[attribute] = params[attribute] unless attribute == "id"
       end
+      Robot.new(temp)
     end
   end
 
@@ -46,6 +51,12 @@ class RobotRegistry
       database['robots'].delete_if{|bot| bot['id'] == id}
       p "After:"
       p database['robots']
+    end
+  end
+
+  def self.delete_all
+    database.transaction do
+      database['robots'] = []
     end
   end
 
