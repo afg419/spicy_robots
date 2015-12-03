@@ -6,14 +6,14 @@
 
 <div id="robot_links">
 <% @robots.each do |robot| %>
-  <h3><a href="/robotregistry/<%=robot.data["id"]%>" id="<%=robot.data[:name] || robot.data["name"]%>">NAME: <%=robot.data["name"]%></a></h3>
-  <img height="150" width="150" src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
+  <h3><a href="/robotregistry/<%=robot.data[:id]%>" id="<%=robot.data[:name]%>">NAME: <%=robot.data[:name]%></a></h3>
+  <img height="150" width="150" src="https://robohash.org/<%=robot.data[:avatar_id]%>" alt="No Picture"/>
 
-  <a id="edit<%=robot.data["id"]%>" href="/robotregistry/<%=robot.data["id"]%>/update">edit</a>
+  <a id="edit<%=robot.data[:id]%>" href="/robotregistry/<%=robot.data[:id]%>/update">edit</a>
 
-  <form class="" action="/robotregistry/<%= robot.data["id"] %>" method="post">
+  <form class="" action="/robotregistry/<%= robot.data[:id] %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" id="delete<%=robot.data["id"]%>" value="Delete">
+    <input type="submit" id="delete<%=robot.data[:id]%>" value="Delete">
   </form><% end %>
 </div>
 <a href="/">home</a>

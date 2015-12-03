@@ -8,11 +8,11 @@
     height, width  = 150, 150
   end %>
 
-  <img height="<%= height %>" width="<%= width %>" src="https://robohash.org/<%=robot.data["id"]%>" alt="No Picture"/>
+  <img height="<%= height %>" width="<%= width %>" src="https://robohash.org/<%=robot.data[:avatar_id]%>" alt="No Picture"/>
 
   <ul>
     <% attributes.each do |attribute, value|
-       if attribute != "name" %>
+       if attribute != :name %>
       <li> <%= attribute%>: <%= value %></li>
       <% end
      end %>

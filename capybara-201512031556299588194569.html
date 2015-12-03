@@ -10,7 +10,24 @@
   <!-- <nav>
     <img class="logo" src="https://s3.amazonaws.com/ooomf-com-files/8H0UdTsvRFqe03hZkNJr_New%20York%20-%20On%20the%20rock%20-%20Empire%20State%20Building.jpg" alt="books">
   </nav> -->
-    <%= yield %>
+    
+<h1>REGISTRY</h1>
+
+<p> hey [#<Robot:0x007faa6a382608 @data={:id=>758, :avatar_id=>68, :name=>"name1", :city=>"city1", :state=>"state1", :operational=>"operational1", :weapons=>"weapons1", :branch=>"branch1"}>] </p>
+
+<div id="robot_links">
+  <h3><a href="/robotregistry/758" id="name1">NAME: name1</a></h3>
+  <img height="150" width="150" src="https://robohash.org/68" alt="No Picture"/>
+
+  <a id="edit758" href="/robotregistry/758/update">edit</a>
+
+  <form class="" action="/robotregistry/758" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" id="delete758" value="Delete">
+  </form>
+</div>
+<a href="/">home</a>
+
 
 </body style="margin-bottom: 24px">
 

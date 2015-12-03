@@ -1,11 +1,11 @@
 <h1>Edit robot:</h1>
 
-<form action="/robotregistry/<%= @robot.data["id"] %>" method="post">
+<form action="/robotregistry/<%= @robot.data[:id] %>" method="post">
   <input type="hidden" name="_method" value="put">
 
   <ul>
     <% @robot.data.each do |attribute, value| %>
-      <% if attribute != "id" %>
+      <% unless [:id, :avatar_id].include?(attribute) %>
       <li><%= attribute %>: <input type='text' name="robot[<%=attribute%>]" value="<%= value %>"></li>
       <% end %>
     <% end %>
