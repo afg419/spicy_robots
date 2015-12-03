@@ -20,9 +20,9 @@ class RobotAnalytics
   def self.totals
     acc = {branch_totals:Hash.new(0) ,city_totals: Hash.new(0), state_totals: Hash.new(0)}
     RobotRegistry.all.each do |robot|
-      acc[:branch_totals][robot.data["branch"].downcase] += 1
-      acc[:city_totals][robot.data["city"].downcase] += 1
-      acc[:state_totals][robot.data["state"].downcase] += 1
+      acc[:branch_totals][robot.data[:branch].downcase] += 1
+      acc[:city_totals][robot.data[:city].downcase] += 1
+      acc[:state_totals][robot.data[:state].downcase] += 1
     end
     acc
   end
