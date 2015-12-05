@@ -17,6 +17,10 @@ class RobotAnalytics
     end
   end
 
+  def average_years
+    
+  end
+
   def self.totals
     acc = {branch_totals:Hash.new(0) ,city_totals: Hash.new(0), state_totals: Hash.new(0)}
     RobotRegistry.all.each do |robot|

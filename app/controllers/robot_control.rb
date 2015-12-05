@@ -4,6 +4,7 @@ class RobotControl < Sinatra::Base
 
   get '/' do
     @analytics = RobotAnalytics.data
+    # @analytics = RobotAnalytics.new
     erb :dashboard
   end
 
