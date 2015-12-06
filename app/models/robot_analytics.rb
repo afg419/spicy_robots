@@ -1,14 +1,23 @@
 class RobotAnalytics
 
-  def self.data
+  attr_reader :avg_years, :branch_totals, :city_totals, :state_totals
+
+  def initialize
+    @avg_years = avg_years
+    @branch_totals = totals[:branch_totals]
+    @city_totals = totals[:city_totals]
+    @state_totals = totals[:state_totals]
+  end
+
+  def data
     {avg_years: avg_years}.merge(totals)
   end
 
-  def self.years
+  def years
     RobotRegistry.all.map{|bot_obj| bot_obj.data[:operational] || bot_obj.data["operational"] }
   end
 
-  def self.avg_years
+  def avg_years
     proper_entries = years.reject{|year| year.to_i.to_s != year}
     if proper_entries.length > 0
       proper_entries.map(&:to_i).reduce(:+)/proper_entries.length
@@ -17,18 +26,14 @@ class RobotAnalytics
     end
   end
 
-  def average_years
-    
-  end
-
-  def self.totals
-    acc = {branch_totals:Hash.new(0) ,city_totals: Hash.new(0), state_totals: Hash.new(0)}
-    RobotRegistry.all.each do |robot|
+  def totals
+    init_acc = {branch_totals:Hash.new(0) ,city_totals: Hash.new(0), state_totals: Hash.new(0)}
+    RobotRegistry.all.reduce(init_acc) do |acc, robot|
       acc[:branch_totals][robot.data[:branch].downcase] += 1
       acc[:city_totals][robot.data[:city].downcase] += 1
       acc[:state_totals][robot.data[:state].downcase] += 1
+      acc
     end
-    acc
   end
 end
 
