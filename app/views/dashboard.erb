@@ -1,18 +1,15 @@
-<h1>DASHBOARD</h1>
-<h1>avg_years: <%=@analytics.avg_years%></h1>
-<h1>Branches: <%=@analytics.branch_totals%></h1>
-<h1>Citys: <%=@analytics.city_totals%></h1>
-<h1>States: <%=@analytics.state_totals%></h1>
+<h1>Robot Data</h1>
 
-<a href="/robotregistry">Check out the bots</a>
-<a id="add_new" href="/robotregistry/new">add a new bot to registry</a>
+<div class="cards">
+<div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.branch_totals,
+                             :total => @analytics.total_bots.to_f,
+                             :demographic => :branch} %></div><br>
 
-<div class="col-md-1">
+<div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.city_totals,
+                            :total => @analytics.total_bots.to_f,
+                            :demographic => :city} %></div><br>
 
+<div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.state_totals,
+                            :total => @analytics.total_bots.to_f,
+                            :demographic => :state} %></div>
 </div>
-<div class="col-md-5"><div class="charts">
-    <div class="charts__chart" data-percent="100%"></div><!-- /.charts__chart -->
-    <div class="charts__chart" data-percent="60%" style="width: 60%"></div><!-- /.charts__chart -->
-    <div class="charts__chart" style="width: 40%"></div><!-- /.charts__chart -->
-    <div class="charts__chart" style="width: 10%"></div><!-- /.charts__chart -->
-</div></div>

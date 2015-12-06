@@ -1,0 +1,18 @@
+<div>
+<div class="col s12 m6">
+   <div class="card blue-grey darken-1">
+     <div class="card-content white-text">
+       <span class="card-title">Robots by <%=demographic%></span><br>
+
+       <% demographic_values.each do |demographic_value, number_of_robots| %>
+         <span class="charter"><%=demographic_value.capitalize%></span><br>
+           <a href="/robotregistry/demographic/<%=demographic%>/<%=demographic_value%>">
+             <button class="charts__chart charter btn-default" style="width:<%=100*(number_of_robots/total)%>%">
+             <%= number_of_robots %> </button>
+           </a>
+         <br>
+       <% end %>
+     </div>
+   </div>
+</div>
+</div>

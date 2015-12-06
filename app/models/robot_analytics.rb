@@ -26,6 +26,10 @@ class RobotAnalytics
     end
   end
 
+  def total_bots
+    RobotRegistry.all.length
+  end
+
   def totals
     init_acc = {branch_totals:Hash.new(0) ,city_totals: Hash.new(0), state_totals: Hash.new(0)}
     RobotRegistry.all.reduce(init_acc) do |acc, robot|
@@ -36,13 +40,3 @@ class RobotAnalytics
     end
   end
 end
-
-
-# def init_params(n)
-#     { :name=>"name#{n}",
-#       :city=>"city#{n}",
-#      :state=>"state#{n}",
-# :operational=>"operational#{n}",
-#    :weapons=>"weapons#{n}",
-#     :branch=>"branch#{n}" }
-# end

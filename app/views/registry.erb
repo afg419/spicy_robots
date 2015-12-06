@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="./application.css">
 <h1>REGISTRY</h1>
 
-<p> hey <%= @robots %> </p>
+<h2> <%= (demographic || "All registered bots").capitalize %>:
+      <%= (demographic_value || "").capitalize %> </h2>
 
 <div id="robot_links">
 <% @robots.each do |robot| %>
@@ -14,4 +16,3 @@
     <input type="submit" id="delete<%=robot.data[:id]%>" value="Delete">
   </form><% end %>
 </div>
-<a href="/">home</a>

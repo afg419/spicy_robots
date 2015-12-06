@@ -30,4 +30,8 @@ class RobotRegistry
     database.from(:robots).where(id: id).delete
   end
 
+  def self.find_by(demo,value)
+    all.select{|robo_obj| robo_obj.data[demo].downcase == value}
+  end
+
 end

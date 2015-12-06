@@ -9,7 +9,8 @@ class RobotControl < Sinatra::Base
 
   get '/robotregistry' do
     @robots = RobotRegistry.all
-    erb :registry
+    erb :registry, :locals => {:demographic => nil,
+                               :demographic_value => nil}
   end
 
   get '/robotregistry/new' do
@@ -19,6 +20,12 @@ class RobotControl < Sinatra::Base
   post '/robotregistry/new' do
     @robot = RobotRegistry.create(params[:robot])
     redirect '/robotregistry'
+  end
+
+  get '/robotregistry/demographic/:demo/:val' do |demo, val|
+    @robots = RobotRegistry.find_by(demo.to_sym, val)
+    erb :registry, :locals => {:demographic => demo.to_sym,
+                               :demographic_value => val}
   end
 
   get '/robotregistry/:id' do |id|

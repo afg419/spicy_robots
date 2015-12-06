@@ -1,26 +1,19 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <title>Robot World</title>
-  <link rel="stylesheet" href="./css/bootstrap.css">
-  <link rel="stylesheet" href="./css/application.css">
+  <!-- <link rel="stylesheet" href="./css/bootstrap.css"> -->
+  <link rel="stylesheet" href="./application.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/theus/chart.css/v1.0.0/dist/chart.css" />
+  <link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
 </head>
     <%= erb :_header %>
 
 <body>
     <%= yield %>
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </body style="margin-bottom: 24px">
 
-
-<nav class="navbar-brand navbar-fixed-bottom" style="background-color: white">
-  <div class="container">
-    <ul class="list-inline">
-      <li><a href="/" style="color: #777" id="bottom_nav_home">Home</a></li>
-      <li><a href="/robots" style="color: #777" id="bottom_nav_index">Robot Index</a></li>
-      <li><a href="/robots/new" style="color: #777" id="bottom_nav_new">New Robot</a></li>
-    </ul>
-  </div>
-</nav>
 </html>

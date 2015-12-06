@@ -1,0 +1,51 @@
+div.navi {background-color: black; color: gray}
+a.navi:hover {color: rgb(175,25,25)}
+
+body {
+      background-image: url('/images/steel.jpg');
+      font-family: play;
+}
+
+nav {
+    background-color: black;
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    font-family: play;
+}
+.nav-wrapper a {
+  margin-left: 15px;
+}
+
+.charter {
+  color: #2BC0B5;
+  font-size: 22;
+}
+
+.charts__chart {
+    background-color: #7F8C8D;
+    width: 100%;
+    height: 2em;
+    margin: 0.5em 0px;
+    color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cards{
+
+}
+
+.card {
+    position: relative;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top:20px;
+    margin-bottom:20px;
+
+    background-color: black;
+    transition: box-shadow 0.25s ease 0s;
+    border-radius: 75px;
+}
