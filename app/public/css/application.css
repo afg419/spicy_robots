@@ -1,0 +1,7 @@
+div.navi {background-color: black; color: gray}
+a.navi:hover {color: rgb(175,25,25)}
+
+body {
+    background-color: white
+    /*background-image: url("http://www.texturex.com/cache/Metal-Textures/brushed%20steal%20metal%20texture%20dark%20steel%20wall%20photo%20cold%20black_800.jpg");*/
+}

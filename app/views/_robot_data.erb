@@ -1,20 +1,14 @@
-<% def robot_data_reduced(robot, profile = :full) %>
 
-<% if profile == :full
-    attributes = robot.data
-    height, width  = 350, 350
-  else
-    attributes = {}
-    height, width  = 150, 150
-  end %>
 
-  <img height="<%= height %>" width="<%= width %>" src="https://robohash.org/<%=robot.data[:avatar_id]%>" alt="No Picture"/>
 
-  <ul>
-    <% attributes.each do |attribute, value|
-       if attribute != :name %>
-      <li> <%= attribute%>: <%= value %></li>
-      <% end
-     end %>
-  </ul>
-<% end %>
+<img height="<%= 150 %>" width="<%= 150 %>" src="https://robohash.org/<%=@robot.data[:avatar_id]%>" alt="No Picture"/>
+
+<% attributes = @robot.data %>
+
+<ul>
+  <% attributes.each do |attribute, value|
+     if attribute != :name %>
+    <li> <%= attribute%>: <%= value %></li>
+    <% end
+   end %>
+</ul>
