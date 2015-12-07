@@ -1,15 +1,34 @@
 <h1>Robot Data</h1>
 
+
 <div class="cards">
+
+  <div class="parallax-container">
+    <div class="parallax"><img src="images/Robot-design.jpg"></div>
+  </div>
+
+
 <div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.branch_totals,
                              :total => @analytics.total_bots.to_f,
                              :demographic => :branch} %></div><br>
+
+ <div class="parallax-container">
+   <div class="parallax"><img src="images/ExMachina.jpg"></div>
+ </div>
 
 <div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.city_totals,
                             :total => @analytics.total_bots.to_f,
                             :demographic => :city} %></div><br>
 
+<div class="parallax-container">
+  <div class="parallax"><img src="images/mech.jpg"></div>
+</div>
+
 <div class="card"><%= erb :_chart, :locals => {:demographic_values => @analytics.state_totals,
                             :total => @analytics.total_bots.to_f,
                             :demographic => :state} %></div>
+</div>
+
+<div class="parallax-container">
+  <div class="parallax"><img src="images/matrix.jpg"></div>
 </div>

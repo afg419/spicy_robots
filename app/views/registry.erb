@@ -1,18 +1,29 @@
-<link rel="stylesheet" href="./application.css">
 <h1>REGISTRY</h1>
 
 <h2> <%= (demographic || "All registered bots").capitalize %>:
       <%= (demographic_value || "").capitalize %> </h2>
 
-<div id="robot_links">
+
+
+<div id="robot-registry">
 <% @robots.each do |robot| %>
-  <h3><a href="/robotregistry/<%=robot.data[:id]%>" id="<%=robot.data[:name]%>">NAME: <%=robot.data[:name]%></a></h3>
-  <img height="150" width="150" src="https://robohash.org/<%=robot.data[:avatar_id]%>" alt="No Picture"/>
-
-  <a id="edit<%=robot.data[:id]%>" href="/robotregistry/<%=robot.data[:id]%>/update">edit</a>
-
-  <form class="" action="/robotregistry/<%= robot.data[:id] %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" id="delete<%=robot.data[:id]%>" value="Delete">
-  </form><% end %>
-</div>
+  <div class="card" id="registry">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator avatar-photo" src="https://robohash.org/<%=robot.data[:avatar_id]%>">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%=robot.data[:name]%><i class="material-icons right"></i></span>
+      <p class="registry-buttons"><form class="" action="/robotregistry/<%= robot.data[:id] %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input class="deleter" type="submit" id="delete<%=robot.data[:id]%>" value="Delete">
+      </form></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><%=robot.data[:name]%><i class="material-icons right">close</i></span>
+      <%= erb :_robot_data, :locals => {:robot => robot} %>
+      <a class="edit-link" id="edit<%=robot.data[:id]%>" href="/robotregistry/<%=robot.data[:id]%>/update">edit</a>
+      <a class="robot-link" href="/robotregistry/<%=robot.data[:id]%>" id="<%=robot.data[:name]%>">personal page</a>
+    </div>
+  </div>
+<% end %>
+<div>

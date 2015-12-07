@@ -1,9 +1,7 @@
 
+<div class="photo"><img class="photo" height="<%= 150 %>" width="<%= 150 %>" src="https://robohash.org/<%=robot.data[:avatar_id]%>" alt="No Picture"/></div>
 
-
-<img height="<%= 150 %>" width="<%= 150 %>" src="https://robohash.org/<%=@robot.data[:avatar_id]%>" alt="No Picture"/>
-
-<% attributes = @robot.data %>
+<% attributes = robot.data %>
 
 <ul>
   <% attributes.each do |attribute, value|

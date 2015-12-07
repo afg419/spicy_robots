@@ -3,14 +3,6 @@ class Robot
 
   def initialize(data = {})
     @data = data
-
-    # @data.keys.map(&:to_sym).each do |attribute|
-    #   self.class.send(:define_method,attribute) {data[attribute.to_s]}
-    # end
-    #
-    # @data.keys.each do |attribute|
-    #   self.class.send(:define_method,(attribute + "=").to_sym) {|x| data[attribute.to_s] = x}
-    # end
   end
 
 end

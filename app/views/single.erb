@@ -2,7 +2,7 @@
 <div id="robot_data">
 <h3>NAME: <%=@robot.data[:name]%></h3>
 
-<%= erb :_robot_data %>
+<%= erb :_robot_data, :locals => {:robot => @robot}%>
 </div>
 
 <a href="/robotregistry">Back to bot registry</a>

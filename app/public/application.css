@@ -13,6 +13,7 @@ nav {
     line-height: 56px;
     font-family: play;
 }
+
 .nav-wrapper a {
   margin-left: 15px;
 }
@@ -20,6 +21,58 @@ nav {
 .charter {
   color: #2BC0B5;
   font-size: 22;
+}
+
+#robot-registry{
+  display: inline-block;
+}
+
+.deleter{
+  display:block;
+  margin-left:auto;
+  margin-right: inherit;
+
+}
+
+.card .card-image img {
+    display: block;
+    position: relative;
+    left: 9px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 85%;
+    height: 45%;
+    margin-top: 20px;
+    margin-left: 18px;
+    border-radius: 20
+}
+
+.blue-grey.darken-1 {
+    background-color: black !important;
+}
+
+
+.robot-link {
+  margin-left:150px;
+}
+
+.edit-link {
+  margin-left:30px
+}
+/*#546E7A*/
+
+.avatar-photo {
+    border-radius: 120;
+    border: 2px solid #21A8AD;
+    padding: 20px;
+    background-color: black;
+}
+
+.photo{
+  display: block;
+  margin-left:auto;
+  margin-right:auto
 }
 
 .charts__chart {
@@ -38,14 +91,46 @@ h1 {
 
 }
 
+#registry{
+  display: inline-block
+}
+
+. registry-buttons {
+  display: right
+
+}
+
 .card {
     position: relative;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
     margin-top:20px;
     margin-bottom:20px;
 
-    background-color: black;
+    background-color: white;
     transition: box-shadow 0.25s ease 0s;
-    border-radius: 75px;
+    border-radius: 60px;
+}
+
+/*.registration{
+  background-color: black;
+  margin-left: 30px;
+  margin-right:30px;
+}
+
+.registration-box{
+  background-color: white;
+  margin-left: 40px;
+  margin-right:40px;
+}*/
+
+
+.registration-form{
+  background-color: white;
+  margin-left: 50px;
+  margin-right:50px;
+  margin-top: 10px;
+  margin-bottom:10px;
+  border : 10px solid #000;
+  padding : 5px;
 }

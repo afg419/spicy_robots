@@ -33,5 +33,4 @@ class RobotRegistry
   def self.find_by(demo,value)
     all.select{|robo_obj| robo_obj.data[demo].downcase == value}
   end
-
 end
