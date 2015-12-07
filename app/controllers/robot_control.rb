@@ -1,28 +1,34 @@
+class CustomAuth < Rack::Auth::Basic
+  def call(env)
+    request = Rack::Request.new(env)
+    case request.path
+    when '/'
+      @app.call(env)  # skip auth
+    else
+      super         # perform auth
+    end
+  end
+end
+
 class RobotControl < Sinatra::Base
   set :root, File.expand_path("..", __dir__)
   set :method_override, true # <-- allows for _method stuff to override and make put and delete methods
 
-  use Rack::Auth::Basic, "Restricted Area" do |username, password|
-    username == 'admint' and password == 'admint'
+  use CustomAuth, "Restricted Area" do |username, password|
+    a = Authentication.all
+    a.map {|user_obj| user_obj.username == username && user_obj.password == password }.any?
   end
 
-  # helpers do
-  #   def protected!
-  #     return if authorized?
-  #     headers['WWW-Authenticate'] = 'Basic realm="Please submit username and password"'
-  #     halt 401, "Not authorized\n"
-  #   end
-  #
-  #   def authorized?
-  #     use Rack::Auth::Basic, "Enter Username and Password!" do |username, password|
-  #       (username == 'admin'|| username == 'jon') and (password == 'admin' || password == 'smith')
-  #     end
-  #   end
-  # end
-
   get '/' do
+    binding.pry
     @analytics = RobotAnalytics.new
+    a = Authentication.all
     erb :dashboard
+  end
+
+  post '/' do
+    @authenticator = Authentication.create(params[:user_input])
+    redirect '/'
   end
 
   get '/robotregistry' do
@@ -67,11 +73,5 @@ class RobotControl < Sinatra::Base
   delete '/robotregistry/:id' do |id|
     RobotRegistry.delete(id.to_i)
     redirect '/robotregistry'
-  end
-end
-
-class Public < Sinatra::Base
-  get '/' do
-    "Create a username and password!"
   end
 end
