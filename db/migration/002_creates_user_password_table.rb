@@ -4,9 +4,9 @@ require 'sqlite3'
 environments = ["test","development"]
 
 environments.each do |env|
-  database = Sequel.sqlite("db/user_password_#{env}.sqlite3").create_table(:user_password) do
+  Sequel.sqlite("db/user_password_#{env}.sqlite3").create_table(:user_password) do
     primary_key :id
-    String :user_name
+    String :name
     String :password
   end
   puts "Migrated #{env} username password environment."

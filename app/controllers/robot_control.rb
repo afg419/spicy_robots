@@ -20,7 +20,6 @@ class RobotControl < Sinatra::Base
   end
 
   get '/' do
-    binding.pry
     @analytics = RobotAnalytics.new
     a = Authentication.all
     erb :dashboard
